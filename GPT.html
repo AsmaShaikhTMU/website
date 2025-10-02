@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Asma Shaikh | Personal Landing Page</title>
+    <meta name="description" content="Asma Shaikh — inspections, automation, and capital planning." />
+    <link rel="icon" href="favicon.ico" />
+    <meta property="og:title" content="Asma Shaikh" />
+    <meta property="og:description" content="Inspections → automation → predictable delivery." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#6d4fc2" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* ===== Light-first, modern & sleek ===== */
+        :root {
+            --bg: #ffffff;
+            --surface: #ffffff;
+            --surface-2: #f8fafc; /* subtle section tint */
+            --text: #0f172a; /* slate-900 */
+            --muted: #475569; /* slate-600 */
+            --border: #e5e7eb; /* gray-200 */
+            --accent-1: #6d4fc2; /* soft purple */
+            --accent-2: #0e9384; /* refined teal */
+            --radius: 14px;
+            --shadow: 0 6px 20px rgba(15,23,42,.06);
+            --shadow-hover: 0 12px 28px rgba(15,23,42,.10);
+        }
+
+        html, body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--surface);
+            backdrop-filter: saturate(180%) blur(6px);
+            border-bottom: 1px solid var(--border)
+        }
+
+        .nav {
+            max-width: 1120px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 20px
+        }
+
+        .brand {
+            font-family: 'Poppins',sans-serif;
+            font-weight: 700;
+            letter-spacing: .2px
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600
+        }
+
+            nav a:hover {
+                color: var(--accent-1)
+            }
+
+        .theme-toggle {
+            background: transparent;
+            border: 0;
+            font-size: 18px;
+            color: var(--muted);
+            cursor: pointer
+        }
+
+        /* Hero */
+        .wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .hero {
+            padding: 72px 0 36px
+        }
+
+            .hero h1 {
+                font-family: 'Poppins',sans-serif;
+                font-size: 2.2rem;
+                line-height: 1.2;
+                margin: 0 0 10px
+            }
+
+        .lead {
+            color: var(--muted);
+            max-width: 780px
+        }
+
+        /* Expertise band (clean tabs/pills) */
+        .expertise-band {
+            padding: 22px 0 10px
+        }
+
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px
+        }
+
+        .pill {
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            padding: 10px 14px;
+            background: var(--surface);
+            font-weight: 600;
+            cursor: pointer;
+            transition: box-shadow .2s ease,transform .2s ease,border-color .2s ease
+        }
+
+            .pill:hover {
+                box-shadow: var(--shadow);
+                transform: translateY(-2px);
+                border-color: #d9dce1
+            }
+
+        /* Sections */
+        section {
+            padding: 46px 0
+        }
+
+        h2.section-title {
+            font-family: 'Poppins',sans-serif;
+            font-size: 1.6rem;
+            margin: 0 0 6px
+        }
+
+        p.sub {
+            color: var(--muted);
+            margin: 0 0 12px
+        }
+
+        .tinted {
+            background: var(--surface-2)
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 22px;
+            align-items: start
+        }
+
+        .avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #edeff3;
+            box-shadow: var(--shadow)
+        }
+
+            .avatar img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block
+            }
+
+        /* Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+            gap: 16px
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 18px;
+            box-shadow: var(--shadow);
+            transition: box-shadow .25s ease,transform .25s ease
+        }
+
+            .card:hover {
+                box-shadow: var(--shadow-hover);
+                transform: translateY(-4px)
+            }
+
+            .card h3 {
+                font-family: 'Poppins',sans-serif;
+                margin: 0 0 6px;
+                font-size: 1.05rem
+            }
+
+            .card p {
+                margin: 0;
+                color: var(--muted)
+            }
+
+        /* Footer */
+        footer {
+            padding: 34px 0;
+            border-top: 1px solid var(--border);
+            color: var(--muted)
+        }
+
+        /* Back to top */
+        #backToTop {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            border-radius: 12px;
+            width: 44px;
+            height: 44px;
+            display: grid;
+            place-items: center;
+            box-shadow: var(--shadow);
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity .2s ease,transform .2s ease
+        }
+
+            #backToTop.visible {
+                opacity: 1;
+                pointer-events: auto
+            }
+
+        /* Responsive */
+        @media (max-width:900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 14px
+            }
+        }
+        /* === Interactive Timeline === */
+        .timeline {
+            padding: 46px 0
+        }
+
+        .tl-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .tl-grid {
+            position: relative;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 18px
+        }
+
+            .tl-grid:before {
+                content: "";
+                position: absolute;
+                left: 60px;
+                top: 0;
+                bottom: 0;
+                width: 2px;
+                background: linear-gradient(#e5e7eb,#cbd5e1)
+            }
+
+        .tl-item {
+            position: relative;
+            display: contents
+        }
+
+        .tl-year {
+            grid-column: 1;
+            color: var(--muted);
+            font-weight: 700;
+            display: flex;
+            justify-content: flex-end;
+            padding-right: 14px
+        }
+
+            .tl-year .badge {
+                display: inline-block;
+                min-width: 64px;
+                text-align: center;
+                border: 1px solid var(--border);
+                border-radius: 999px;
+                padding: 6px 10px;
+                background: var(--surface);
+                box-shadow: var(--shadow);
+                transition: transform .2s ease,box-shadow .2s ease,border-color .2s ease
+            }
+
+        .tl-card {
+            grid-column: 2;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: transform .25s ease,box-shadow .25s ease,border-color .25s ease;
+            opacity: 0;
+            transform: translateY(10px)
+        }
+
+            .tl-card:before {
+                content: "";
+                position: absolute;
+                left: -10px;
+                top: 22px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: linear-gradient(90deg,var(--accent-1),var(--accent-2));
+                box-shadow: 0 0 0 4px #fff
+            }
+
+            .tl-card h3 {
+                margin: 0 0 6px;
+                font-family: 'Poppins',sans-serif;
+                font-size: 1.05rem
+            }
+
+            .tl-card p {
+                margin: 0;
+                color: var(--muted)
+            }
+
+            .tl-card.visible {
+                opacity: 1;
+                transform: none
+            }
+
+            .tl-card:hover {
+                transform: translateY(-4px);
+                box-shadow: var(--shadow-hover);
+                border-color: #d9dce1
+            }
+
+        .tl-item:hover .badge {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            border-color: #d9dce1
+        }
+
+        /* === Micro‑interactions: expertise pills === */
+        .pill {
+            position: relative;
+            overflow: hidden
+        }
+
+            .pill:after {
+                content: "";
+                position: absolute;
+                inset: auto -20% -120% -20%;
+                height: 160%;
+                background: radial-gradient(60px 60px at var(--x,50%) var(--y,50%), rgba(109,79,194,.12), transparent 60%);
+                transition: opacity .25s ease;
+                opacity: 0;
+                pointer-events: none
+            }
+
+            .pill:hover:after {
+                opacity: 1
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav">
+            <div class="brand">Asma Shaikh</div>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#expertise">Expertise</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-regular fa-moon"></i></button>
+        </div>
+    </header>
+
+    <main id="home" class="wrap">
+        <section class="hero">
+            <h1>Hi, I’m Asma Shaikh</h1>
+            <p class="lead">I translate building inspections and financial data into clean capital plans and predictable delivery. Evidence first. Assumptions documented. Templates reusable.</p>
+        </section>
+
+        <!-- Expertise pills under hero (neat, always visible) -->
+        <section id="expertise" class="expertise-band">
+            <div class="pills">
+                <a class="pill" href="#ai">Artificial Intelligence</a>
+                <a class="pill" href="#asset">Asset Management</a>
+                <a class="pill" href="#pm">Project Management</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2 class="section-title">About</h2>
+            <p class="sub">15+ years at the intersection of public-sector strategy, data, and real projects.</p>
+            <div class="about-grid">
+                <div class="avatar"><img src="your-photo.jpg" alt="Portrait of Asma Shaikh"></div>
+                <div>
+                    <p>My name is Asma Shaikh, and for over 15 years, I've had a unique vantage point: the intersection of public-sector strategy, data, and the real-world projects that bring it all to life. I don't see these as separate disciplines; I see them as three sides of a single coin.</p>
+                    <p>My journey began with a hands-on understanding of buildings and infrastructure as a Building Science Professional. I learned what it takes to build and maintain a strong foundation. But I quickly realized that the best technical plans fall apart without a strong financial strategy and a clear path to execution.</p>
+                    <p>This led me to a dual focus: translating complex financial data into actionable recommendations for senior leadership and re-engineering the very systems that support large-scale projects. At Toronto Metropolitan University, for example, I led an initiative to improve procurement efficiency by 20% and boosted cost tracking accuracy by 15%.</p>
+                    <p>Today, armed with a PMP certification and a knack for finding the story in the data, my mission is to connect all these dots. I'm passionate about helping organizations like Metrolinx achieve their strategic goals by ensuring their capital plans are not just visions on a page, but well‑oiled machines built for success.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="timeline" class="tinted timeline">
+            <div class="tl-wrap">
+                <h2 class="section-title">Timeline</h2>
+                <p class="sub">A quick look at the milestones that shaped my approach.</p>
+                <div class="tl-grid">
+                    <div class="tl-item">
+                        <div class="tl-year"><span class="badge">2009</span></div>
+                        <div class="tl-card"><h3>Building Science foundation</h3><p>Hands-on building envelope and systems work — where my inspection mindset started.</p></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-year"><span class="badge">2015</span></div>
+                        <div class="tl-card"><h3>Project controls & analytics</h3><p>Leaned into data and finance to make technical plans executable.</p></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-year"><span class="badge">2018</span></div>
+                        <div class="tl-card"><h3>Toronto Metropolitan University impact</h3><p>Improved procurement efficiency by 20% and cost tracking accuracy by 15% through process re‑engineering.</p></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-year"><span class="badge">2019</span></div>
+                        <div class="tl-card"><h3>PMP certification</h3><p>Formalized delivery practices across planning, risk, and stakeholder alignment.</p></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-year"><span class="badge">2023</span></div>
+                        <div class="tl-card"><h3>AI for inspections</h3><p>Prototyped OCR + detection + RAG to turn field photos and notes into draft reports.</p></div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-year"><span class="badge">2025</span></div>
+                        <div class="tl-card"><h3>Automation‑first capital planning</h3><p>Refining templates and workflows so reserve studies and life‑safety reports are faster and more consistent.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="tinted">
+            <h2 class="section-title">Projects</h2>
+            <p class="sub">Proof of work — automation, inspections, and capital planning.</p>
+            <div class="grid">
+                <div class="card"><h3>Automated Inspection Pipeline</h3><p>OCR → detection → RAG reports. Faster site‑to‑report and fewer errors.</p></div>
+                <div class="card"><h3>Reserve Fund Study Template</h3><p>Defensible assumptions, escalation logic, and repeatable outputs.</p></div>
+                <div class="card"><h3>Fire Pump Room Audit</h3><p>Photo‑backed findings with compliance checklist and recommendations.</p></div>
+            </div>
+        </section>
+
+        <section id="courses">
+            <h2 class="section-title">Courses</h2>
+            <p class="sub">Training that turns process into practice.</p>
+            <div class="grid">
+                <div class="card"><h3>Inspection Automation 101</h3><p>OCR, labeling, and RAG basics with hands‑on exercises.</p></div>
+                <div class="card"><h3>Reserve Fund Study Workshop</h3><p>Templates, cost inputs, and reporting for repeatability.</p></div>
+                <div class="card"><h3>Fire & Life Safety Essentials</h3><p>Compliance checklists, documentation tips, and risk framing.</p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap" style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+            <span>© 2025 Asma Shaikh</span>
+            <span>Built modern. No clutter.</span>
+        </div>
+    </footer>
+
+    <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <script>
+        // Back to top
+        const back = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => { back.classList.toggle('visible', window.scrollY > 360); });
+        back.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Optional dark mode (kept minimal)
+        const toggle = document.getElementById('themeToggle');
+        toggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            const i = toggle.querySelector('i');
+            if (document.documentElement.classList.contains('dark')) { i.className = 'fa-regular fa-sun'; document.body.style.background = '#0f1222'; document.body.style.color = '#e9edf1'; }
+            else { i.className = 'fa-regular fa-moon'; document.body.style.background = 'var(--bg)'; document.body.style.color = 'var(--text)'; }
+        });
+        // Timeline reveal on scroll
+        const tlCards = document.querySelectorAll('.tl-card');
+        const tlObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); tlObs.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        tlCards.forEach(c => tlObs.observe(c));
+
+        // Micro‑interaction: track mouse for pill glow
+        document.querySelectorAll('.pill').forEach(p => {
+            p.addEventListener('mousemove', (e) => {
+                const r = p.getBoundingClientRect();
+                p.style.setProperty('--x', `${e.clientX - r.left}px`);
+                p.style.setProperty('--y', `${e.clientY - r.top}px`);
+            });
+        });
+    </script>
+</body>
+</html>
